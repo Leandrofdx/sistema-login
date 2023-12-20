@@ -1,0 +1,37 @@
+# Projeto Node.js com PostgreSQL e JWT
+
+Este é um projeto básico que demonstra a implementação de um sistema de cadastro de usuários utilizando Node.js, PostgreSQL para o banco de dados e JWT para autenticação.
+
+## Pré-requisitos
+
+Antes de começar, certifique-se de ter o Node.js e o PostgreSQL instalados em sua máquina.
+
+- [Node.js](https://nodejs.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+
+## Configuração do Banco de Dados
+
+1. Crie um banco de dados no PostgreSQL.
+
+-- Criação da tabela de usuários com senha criptografada
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+2. Atualize as configurações do banco de dados no arquivo `app.js` com suas credenciais e informações específicas.
+
+```javascript
+const pool = new Pool({
+    user: 'seu_usuario',
+    host: 'localhost',
+    database: 'seu_banco_de_dados',
+    password: 'sua_senha',
+    port: 5432,
+});
+
+3. npm install
+4. npm start 
+

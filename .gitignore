@@ -1,0 +1,34 @@
+# Node.js
+node_modules/
+npm-debug.log
+
+# Arquivos de ambiente
+.env
+
+# Arquivos de build
+/build/
+
+# Arquivos de log
+*.log
+logs/
+npm-debug.log*
+
+# npm lock file
+package-lock.json
+
+
+# Dependências
+/.pnp
+.pnp.js
+
+# Caches
+/.cache
+.cache-loader
+.pnp
+
+# Output de construção
+/dist/
+
+# Arquivos temporários
+/tmp
+/temp
