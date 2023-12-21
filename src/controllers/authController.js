@@ -6,6 +6,7 @@ const secretKey = 'seu_segredo_jwt';
 
 const login = async (req, res) => {
     try {
+        console.log(`Versão do Protocolo HTTP: ${req.httpVersion}`);
         const { email, senha } = req.body;
 
         // Consulta ao banco de dados para verificar as credenciais
