@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "deb5e9f1-dff1-4f2e-9f6b-33c8afd7c639",
+		"name": "Collections_sistema",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3218575",
+		"_collection_link": "https://lunar-firefly-543119.postman.co/workspace/UNIMED~90a195b7-408c-4e29-b0d0-1bba60e50144/collection/3218575-deb5e9f1-dff1-4f2e-9f6b-33c8afd7c639?action=share&source=collection_link&creator=3218575"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"email\": \"usuario@gmail.com\", \"senha\": \"senha\"}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Cadastro de Usuário",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nome\": \"usuario\", \"email\": \"usuario@gmail.com\", \"senha\": \"senha\"}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Obter Todos os Usuários",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzdWFyaW9AZ21haWwuY29tIiwibm9tZSI6InVzdWFyaW8iLCJpZCI6MSwiaWF0IjoxNzAzMDkwMjA5fQ.99n0LVYcoTt9k1J9ZbdwGQ-StdmD5nYUK7Fn83tjF4w"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzdWFyaW9AZ21haWwuY29tIiwibm9tZSI6InVzdWFyaW8iLCJpZCI6MSwiaWF0IjoxNzAzMDkwMjA5fQ.99n0LVYcoTt9k1J9ZbdwGQ-StdmD5nYUK7Fn83tjF4w"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"nome\": \"Novo Nome\", \"email\": \"usuario@gmail.com\"}"
+				},
+				"url": {
+					"raw": "http://localhost:3000/usuarios/1/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"1",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir Usuário",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6InVzdWFyaW9AZ21haWwuY29tIiwibm9tZSI6InVzdWFyaW8iLCJpZCI6MSwiaWF0IjoxNzAzMDkwMjA5fQ.99n0LVYcoTt9k1J9ZbdwGQ-StdmD5nYUK7Fn83tjF4w"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/usuarios/9",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"usuarios",
+						"9"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

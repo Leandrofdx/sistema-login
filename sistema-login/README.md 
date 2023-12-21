@@ -1,0 +1,43 @@
+# Projeto Node.js com PostgreSQL e JWT
+
+Este é um projeto básico que demonstra a implementação de um sistema de cadastro de usuários utilizando Node.js, PostgreSQL para o banco de dados e JWT para autenticação.
+
+## Pré-requisitos
+
+Antes de começar, certifique-se de ter o Node.js e o PostgreSQL instalados em sua máquina.
+
+- [Node.js](https://nodejs.org/)
+- [PostgreSQL](https://www.postgresql.org/)
+
+## Configuração do Banco de Dados
+
+1. Crie um banco de dados no PostgreSQL.
+
+-- Criação da tabela de usuários com senha criptografada
+CREATE TABLE usuarios (
+    id SERIAL PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL
+);
+
+2. Atualize as configurações do banco de dados no arquivo `app.js` com suas credenciais e informações específicas.
+
+```javascript
+const pool = new Pool({
+    user: 'seu_usuario',
+    host: 'localhost',
+    database: 'seu_banco_de_dados',
+    password: 'sua_senha',
+    port: 5432,
+});
+2.1
+openssl genrsa -des3 -out rootCA.key 2048
+openssl req -x509 -new -nodes -key rootCA.key -sha256 -days 1024 -out rootCA.pem
+rootCA.pem >> KeyChain
+openssl req -new -sha256 -nodes -out server.csr -newkey rsa:2048 -keyout server.key -config <( cat server.csr.cnf )
+openssl x509 -req -in server.csr -CA rootCA.pem -CAkey rootCA.key -CAcreateserial -out server.crt -days 500 -sha256 -extfile v3.ext
+
+3. npm install
+4. docker run -d -p 9411:9411 --name zipkin openzipkin/zipkin
+5. npm start 
