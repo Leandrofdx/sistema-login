@@ -3,7 +3,7 @@ const secretKey = 'seu_segredo_jwt';
 
 const authenticateToken = (req, res, next) => {
 
-    if (req.path === '/usuarios' && req.method === 'POST' || req.path === '/') {
+    if (req.path === '/usuarios' && req.method === 'POST'  || req.path === '/') {
         return next();
     }
 

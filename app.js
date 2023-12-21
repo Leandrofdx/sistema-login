@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 // Configuração do rate limit (10 requisições por segundo)
 const limiter = rateLimit({
     windowMs: 1000, // 1 segundo
-    max: 10, // 10 requisições por segundo
+    max: 10000, // 10 requisições por segundo
     message: 'Limite de requisições excedido. Tente novamente mais tarde.',
 });
 
@@ -33,6 +33,15 @@ app.use(limiter);
 
 // Rota de autenticação
 app.use(authRoutes);
+
+// Middleware para imprimir a versão do protocolo
+app.use('/', (req, res, next) => {
+    console.log(`Versão do Protocolo HTTP: ${req.httpVersion}`);
+    next();
+});
+
+// Configuração para servir arquivos estáticos da pasta 'public'
+app.use('/' , express.static(path.join(__dirname, 'public')));
 
 // Rotas protegidas com autenticação JWT (deve vir após as rotas de autenticação)
 app.use(authenticateToken);
