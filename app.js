@@ -4,7 +4,9 @@ const { authenticateToken } = require('./src/middlewares/authMiddleware');
 const authRoutes = require('./src/routes/authRoutes');
 const userRoutes = require('./src/routes/userRoutes');
 const rateLimit = require('express-rate-limit');
+const { trace } = require('@opentelemetry/api');
 
+const tracer = trace.getTracer('SERVER-API-LOGIN', '0.1.0');
 const app = express();
 const port = 3000;
 
