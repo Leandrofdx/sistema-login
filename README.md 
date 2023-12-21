@@ -33,5 +33,5 @@ const pool = new Pool({
 });
 
 3. npm install
-4. npm start 
-
+4. docker run -d -p 9411:9411 --name zipkin openzipkin/zipkin
+5. npm start 
