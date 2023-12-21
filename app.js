@@ -6,15 +6,17 @@ const userRoutes = require('./src/routes/userRoutes');
 const rateLimit = require('express-rate-limit');
 const fs = require('fs');
 const path = require('path');
-var https = require('https')
+const http2Express = require('http2-express-bridge')
+const http2 = require('http2')
 
 const options = {
     key: fs.readFileSync(path.resolve('./certs/server.key')),
     cert: fs.readFileSync(path.resolve('./certs/server.crt')),
-    protocols: ['h2', 'http/1.1'],
+    allowHTTP1: true,
 };
 
-const app = express();
+//const app = express();
+const app = http2Express(express)
 const port = 3000;
 
 app.use(bodyParser.json());
@@ -58,9 +60,10 @@ app.use((err, req, res, next) => {
     res.status(500).send('Algo deu errado!');
 });
 
-// Crie o servidor usando spdy
-https
-    .createServer(options, app)
-    .listen(port, () => {
-        console.log(`Servidor rodando em https://localhost:${port}`);
-    });
+const server = http2.createSecureServer(options, app)
+
+app.server = server;
+
+server.listen(port, () => {
+    console.log(`Servidor rodando em https://localhost:${port}`);
+});
