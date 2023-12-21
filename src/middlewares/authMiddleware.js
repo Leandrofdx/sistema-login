@@ -2,8 +2,12 @@ const jwt = require('jsonwebtoken');
 const secretKey = 'seu_segredo_jwt';
 
 const authenticateToken = (req, res, next) => {
-    // Excluir a verificação do token para a rota de criação de usuários
-    if (req.path === '/usuarios' && req.method === 'POST') {
+
+    if (req.path === '/usuarios' && req.method === 'POST' || req.path === '/') {
+        return next();
+    }
+
+    if (req.path === '/' && req.method === 'GET') {
         return next();
     }
 

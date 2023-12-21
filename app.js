@@ -6,7 +6,6 @@ const userRoutes = require('./src/routes/userRoutes');
 const rateLimit = require('express-rate-limit');
 const { trace } = require('@opentelemetry/api');
 
-const tracer = trace.getTracer('SERVER-API-LOGIN', '0.1.0');
 const app = express();
 const port = 3000;
 
@@ -27,6 +26,12 @@ app.use(authRoutes);
 
 // Rotas protegidas com autenticação JWT (deve vir após as rotas de autenticação)
 app.use(authenticateToken);
+
+// Rota de boas-vindas
+app.get('/', (req, res) => {
+    res.send('Bem-vindo');
+    console.log(`Versão do Protocolo HTTP: ${req.httpVersion}`);
+});
 
 // Rota de cadastro de usuário (sem autenticação)
 app.use('/usuarios', userRoutes);
