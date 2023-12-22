@@ -25,19 +25,19 @@ app.use(bodyParser.json());
 app.use(rateLimit({ windowMs: 1000, max: 10000, message: 'Limite de requisições excedido. Tente novamente mais tarde.' }));
 app.use(authRoutes);
 
+// Servir arquivos estáticos da pasta 'public' usando HTTP/2
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Middleware para imprimir a versão do protocolo
-app.use('/', (req, res, next) => {
+app.use((req, res, next) => {
     console.log(`Versão do Protocolo HTTP: ${req.httpVersion}`);
     next();
 });
 
-// Servir arquivos estáticos da pasta 'public'
-app.use('/', express.static(path.join(__dirname, 'public')));
-
 // Rotas protegidas com autenticação JWT (deve vir após as rotas de autenticação)
 app.use(authenticateToken);
 
-// Rotas
+// Rota de boas-vindas
 app.get('/', (req, res) => {
     res.send('Bem-vindo');
     console.log(`Versão do Protocolo HTTP: ${req.httpVersion}`);
