@@ -25,6 +25,11 @@ app.use(bodyParser.json());
 app.use(rateLimit({ windowMs: 1000, max: 10000, message: 'Limite de requisições excedido. Tente novamente mais tarde.' }));
 app.use(authRoutes);
 
+app.use((req, res, next) => {
+    console.log(`Versão do Protocolo HTTP: ${req.httpVersion}`);
+    next();
+});
+
 // Servir arquivos estáticos da pasta 'public' usando HTTP/2
 app.use(express.static(path.join(__dirname, 'public')));
 
