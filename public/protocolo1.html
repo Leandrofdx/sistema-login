@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Protocolo HTTP 1</title>
+  <style>
+    body {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px; /* Espaçamento entre as imagens */
+    }
+
+    .title-container {
+      width: 100%;
+      margin-bottom: 20px; /* Ajuste o valor conforme necessário */
+    }
+
+    .image-container {
+      width: 30px;
+      height: 30px;
+      overflow: hidden;
+      border: 1px solid #ddd; /* Borda para destacar os quadros */
+    }
+
+    .image-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Para cobrir todo o quadro sem distorção */
+    }
+
+    #tempo-carregamento {
+      margin-top: 10px; /* Ajuste conforme necessário */
+    }
+  </style>
+</head>
+<body>
+  <div class="title-container">
+    <h1>HTTP 1</h1>
+    <p id="tempo-carregamento"></p>
+  </div>
+  <script>
+    // Número desejado de imagens
+    const numImagens = 1;
+
+    // Função para criar elementos div e img e adicioná-los ao body
+    function adicionarImagens() {
+      const startTime = performance.now();
+
+      for (let i = 1; i <= numImagens; i++) {
+        const divElement = document.createElement('div');
+        divElement.className = 'image-container';
+
+        const imgElement = document.createElement('img');
+        imgElement.src = '/image/imagem' + i + '.jpeg';
+        imgElement.alt = 'Imagem ' + i;
+
+        divElement.appendChild(imgElement);
+        document.body.appendChild(divElement);
+      }
+
+      const endTime = performance.now();
+      const tempoDeCarregamento = endTime - startTime;
+
+
+      // Adicionar o tempo de carregamento abaixo do título
+      const tempoElement = document.getElementById('tempo-carregamento');
+      tempoElement.textContent = `Tempo de carregamento: ${tempoDeCarregamento.toFixed(2)} milissegundos`;
+    }
+
+    // Chamar a função ao carregar a página
+    window.onload = adicionarImagens;
+  </script>
+</body>
+</html>
