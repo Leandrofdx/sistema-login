@@ -11,7 +11,6 @@ app.get('/protocolo2', (req, res) => {
 });
 
  app.get('/image/:imageName', (req, res) => {
-  //  res.sendFile(path.join(__dirname, '/public/images/image.jpeg'));
   const imageName = req.params.imageName;
   const imagePath = path.join(__dirname, 'public', 'images', imageName);
 
@@ -23,11 +22,10 @@ app.get('/protocolo2', (req, res) => {
   });
 });
 
-
 // Configuração para o servidor HTTPS (HTTP/2)
 const options = {
-  key: fs.readFileSync(path.resolve('server.key')),
-  cert: fs.readFileSync(path.resolve('server.crt')),
+  key: fs.readFileSync(path.resolve('./certs/server.key')),
+  cert: fs.readFileSync(path.resolve('./certs/server.crt')),
 };
 
 const httpsServer = https.createServer(options, app);
@@ -39,7 +37,7 @@ httpsServer.on('secureConnection', (tlsSocket) => {
 });
 
 httpsServer.listen(httpsPort, () => {
-  console.log(`Servidor HTTPS (HTTP/2) iniciado em https://localhost:${httpsPort}`);
+  console.log(`Servidor HTTPS (HTTP/2) iniciado em https://localhost:${httpsPort}/protocolo2`);
 });
 
 // Configuração para o servidor HTTP (HTTP/1)
@@ -50,7 +48,6 @@ httpApp.get('/protocolo1', (req, res) => {
 });
 
 httpApp.get('/image/:imageName', (req, res) => {
-  //res.sendFile(path.join(__dirname, '/public/images/image.jpeg'));
   const imageName = req.params.imageName;
   const imagePath = path.join(__dirname, 'public', 'images', imageName);
 
@@ -66,5 +63,5 @@ const httpServer = http.createServer(httpApp);
 const httpPort = 3000;
 
 httpServer.listen(httpPort, () => {
-  console.log(`Servidor HTTP (HTTP/1) iniciado em http://localhost:${httpPort}`);
+  console.log(`Servidor HTTP (HTTP/1) iniciado em http://localhost:${httpPort}/protocolo1`);
 });
