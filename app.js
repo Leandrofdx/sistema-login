@@ -34,7 +34,11 @@ app.use((req, res, next) => {
 
 // Middlewares e configurações globais
 app.use(bodyParser.json());
-app.use(rateLimit({ windowMs: 1000, max: 10000, message: 'Limite de requisições excedido. Tente novamente mais tarde.' }));
+app.use(rateLimit({ 
+    windowMs: 1000, 
+    max: 10000, 
+    message: 'Limite de requisições excedido. Tente novamente mais tarde.' 
+}));
 
 // Compressão de resposta (com verificação para HTTP/2)
 app.use((req, res, next) => {
