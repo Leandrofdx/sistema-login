@@ -39,7 +39,8 @@
     <h1>HTTP 1</h1>
     <p id="tempo-carregamento"></p>
   </div>
-  <script>
+
+      <script>
     // Número desejado de imagens
     const numImagens = 1;
 
@@ -58,7 +59,6 @@
         divElement.appendChild(imgElement);
         document.body.appendChild(divElement);
       }
-
       const endTime = performance.now();
       const tempoDeCarregamento = endTime - startTime;
 
