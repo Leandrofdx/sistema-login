@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package images;
+
+service ImageService {
+  rpc ListImages (ListImagesRequest) returns (ListImagesResponse);
+}
+
+message ListImagesRequest {}
+
+message Image {
+  string url = 1;
+  string description = 2;
+}
+
+message ListImagesResponse {
+  repeated Image images = 1;
+}
