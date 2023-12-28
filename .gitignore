@@ -1,34 +1,29 @@
-# Node.js
-node_modules/
-npm-debug.log
-
-# Arquivos de ambiente
-.env
-
-# Arquivos de build
-/build/
-
-# Arquivos de log
+# Logs
+logs
 *.log
-logs/
 npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# npm lock file
-package-lock.json
+node_modules
+.DS_Store
+dist-ssr
+coverage
+*.local
+dist
+public
+/cypress/videos/
+/cypress/screenshots/
 
-
-# Dependências
-/.pnp
-.pnp.js
-
-# Caches
-/.cache
-.cache-loader
-.pnp
-
-# Output de construção
-/dist/
-
-# Arquivos temporários
-/tmp
-/temp
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.editorconfig
