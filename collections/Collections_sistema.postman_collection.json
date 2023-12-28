@@ -22,8 +22,8 @@
 					"raw": "{\"email\": \"usuario@gmail.com\", \"senha\": \"senha\"}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/login",
-					"protocol": "http",
+					"raw": "https://localhost:3000/login",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -50,8 +50,8 @@
 					"raw": "{\"nome\": \"usuario\", \"email\": \"usuario@gmail.com\", \"senha\": \"senha\"}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/usuarios",
-					"protocol": "http",
+					"raw": "https://localhost:3000/usuarios",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -74,8 +74,8 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3000/usuarios",
-					"protocol": "http",
+					"raw": "https://localhost:3000/usuarios",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -106,8 +106,8 @@
 					"raw": "{\"nome\": \"Novo Nome\", \"email\": \"usuario@gmail.com\"}"
 				},
 				"url": {
-					"raw": "http://localhost:3000/usuarios/1/",
-					"protocol": "http",
+					"raw": "https://localhost:3000/usuarios/1/",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
@@ -132,15 +132,15 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3000/usuarios/9",
-					"protocol": "http",
+					"raw": "https://localhost:3000/usuarios/10",
+					"protocol": "https",
 					"host": [
 						"localhost"
 					],
 					"port": "3000",
 					"path": [
 						"usuarios",
-						"9"
+						"10"
 					]
 				}
 			},
