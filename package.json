@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --require ./ops/instrumentation.js app.js",
-    "dev": "nodemon --require ./ops/instrumentation.js app.js",
+    "start": "nodemon --require ./ops/instrumentation.js server.js",
+    "dev": "nodemon --require ./ops/instrumentation.js server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
