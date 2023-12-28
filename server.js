@@ -59,7 +59,7 @@ const startServer = async () => {
 
   const httpServer = spdy.createServer(httpOptions, app);
   httpServer.listen(httpPort, () => {
-    console.log(`HTTP Server running at https://localhost:${httpPort}`);
+    console.log(`HTTP Server running at https://localhost:${httpPort}/images`);
   });
 
   const protoPath = path.join(__dirname, 'proto', 'images.proto');
